@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearchOrganizer.WebMVC", "JobSearchOrganizer.WebMVC\JobSearchOrganizer.WebMVC.csproj", "{DE3153AA-E89D-47CA-AECE-FF7102D69DC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearchOrganizer.Data", "JobSearchOrganizer.Data\JobSearchOrganizer.Data.csproj", "{DC6FF779-844D-4B3A-9F41-BE1A578569D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearchOrganizer.Models", "JobSearchOrganizer.Models\JobSearchOrganizer.Models.csproj", "{AB924566-B91E-4EDD-A411-86294BA27FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearchOrganizer.Services", "JobSearchOrganizer.Services\JobSearchOrganizer.Services.csproj", "{55201EB0-7D32-4FD1-8004-C5D7BAC0461A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearchOrganizer.Contracts", "JobSearchOrganizer.Contracts\JobSearchOrganizer.Contracts.csproj", "{97C4EE37-5403-4DCF-AB54-C516C2CE0D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSearchOrganizer.Tests", "JobSearchOrganizer.Tests\JobSearchOrganizer.Tests.csproj", "{4D21AC3B-B383-4902-BD95-21052110D25C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE3153AA-E89D-47CA-AECE-FF7102D69DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3153AA-E89D-47CA-AECE-FF7102D69DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3153AA-E89D-47CA-AECE-FF7102D69DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3153AA-E89D-47CA-AECE-FF7102D69DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6FF779-844D-4B3A-9F41-BE1A578569D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6FF779-844D-4B3A-9F41-BE1A578569D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6FF779-844D-4B3A-9F41-BE1A578569D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6FF779-844D-4B3A-9F41-BE1A578569D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB924566-B91E-4EDD-A411-86294BA27FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB924566-B91E-4EDD-A411-86294BA27FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB924566-B91E-4EDD-A411-86294BA27FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB924566-B91E-4EDD-A411-86294BA27FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55201EB0-7D32-4FD1-8004-C5D7BAC0461A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55201EB0-7D32-4FD1-8004-C5D7BAC0461A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55201EB0-7D32-4FD1-8004-C5D7BAC0461A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55201EB0-7D32-4FD1-8004-C5D7BAC0461A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C4EE37-5403-4DCF-AB54-C516C2CE0D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C4EE37-5403-4DCF-AB54-C516C2CE0D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C4EE37-5403-4DCF-AB54-C516C2CE0D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C4EE37-5403-4DCF-AB54-C516C2CE0D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D21AC3B-B383-4902-BD95-21052110D25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D21AC3B-B383-4902-BD95-21052110D25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D21AC3B-B383-4902-BD95-21052110D25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D21AC3B-B383-4902-BD95-21052110D25C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB9DA598-3DF7-4A7D-AE6F-1FA99DB7AA04}
+	EndGlobalSection
+EndGlobal
