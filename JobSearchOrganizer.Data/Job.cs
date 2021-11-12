@@ -11,7 +11,11 @@ namespace JobSearchOrganizer.Data
     {
         [Key]
         public int JobId { get; set; }
-        public int UserId { get; set; }
+
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
+
         [Required]
         [Display(Name = "Job Title Applied To")]
         public string JobTitle { get; set; }
