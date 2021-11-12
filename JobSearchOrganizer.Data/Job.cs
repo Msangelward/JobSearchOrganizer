@@ -13,17 +13,26 @@ namespace JobSearchOrganizer.Data
         public int JobId { get; set; }
         public int UserId { get; set; }
         [Required]
+        [Display(Name = "Job Title Applied To")]
         public string JobTitle { get; set; }
+        [Display(Name = "Company Applied To")]
         public string CompanyName { get; set; }
         [Required]
+        [Display(Name = "Job Description")]
         public string JobDescription { get; set; }
         [Required]
-        public Enum HowApplied { get; set; }
+        [Display(Name = "How You Applied")]
+        public string HowApplied { get; set; }
+        [Display(Name = "Your Next Step")]
         public string NextStep { get; set; }
         [Required]
+        [Display(Name = "Date You Applied")]
         public DateTime DateApplied { get; set; }
+        [Display(Name = "A Potential Point of Contact")]
         public string PotentialPointOfContact { get; set; }
+        [Display(Name = "Date of Last Contact")]
         public DateTime DateOfLastContact { get; set; }
+        [Display(Name = "Interview Notes")]
         public string InterviewNotes { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

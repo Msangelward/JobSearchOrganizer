@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JobSearchOrganizer.WebMVC.Models;
+using JobSearchOrganizer.Data;
 
 namespace JobSearchOrganizer.WebMVC.Controllers
 {
