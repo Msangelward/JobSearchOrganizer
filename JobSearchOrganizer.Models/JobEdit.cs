@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobSearchOrganizer.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace JobSearchOrganizer.Models
         public string JobTitle { get; set; }
         public string CompanyName { get; set; }
         public string JobDescription { get; set; }
-        public string HowApplied { get; set; }
+        public HowApplied HowApplied { get; set; }
         public string NextStep { get; set; }
         public DateTime DateApplied { get; set; }
         public string PotentialPointOfContact { get; set; }
