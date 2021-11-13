@@ -83,5 +83,28 @@ namespace JobSearchOrganizer.Services
                     };
             }
         }
+
+        public bool UpdateJob(JobEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Jobs
+                        .Single(e => e.JobId == model.JobId && e.UserId == _userId);
+
+                entity.JobTitle = model.JobTitle;
+                entity.CompanyName = model.CompanyName;
+                entity.JobDescription = model.JobDescription;
+                entity.HowApplied = model.HowApplied;
+                entity.NextStep = model.NextStep;
+                entity.DateApplied = model.DateApplied;
+                entity.PotentialPointOfContact = model.PotentialPointOfContact;
+                entity.DateOfLastContact = model.DateOfLastContact;
+                entity.InterviewNotes = model.InterviewNotes;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
