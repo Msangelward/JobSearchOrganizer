@@ -14,13 +14,14 @@ namespace JobSearchOrganizer.Data
         public int CompanyId { get; set; }
 
         
-        [ForeignKey("ApplicationUser")]
+        //[ForeignKey("ApplicationUser")]//
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
         
 
         [Required]
         public string CompanyName { get; set; }
+        [Required]
         public string CompanyWebsite { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }

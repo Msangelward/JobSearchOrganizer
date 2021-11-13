@@ -10,11 +10,27 @@ namespace JobSearchOrganizer.WebMVC.Controllers
     [Authorize]
     public class InterviewNoteController : Controller
     {
-        // GET: InterviewNote
         public ActionResult Index()
         {
             var model = new InterviewNoteListItem[0];
             return View();
+        }
+
+        // GET: InterviewNote
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(InterviewNoteCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
         }
     }
 }
