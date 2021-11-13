@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobSearchOrganizer.Data\JobSearchOrganizer.Data.csproj">
+      <Project>{dc6ff779-844d-4b3a-9f41-be1a578569d0}</Project>
+      <Name>JobSearchOrganizer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobSearchOrganizer.Models\JobSearchOrganizer.Models.csproj">
+      <Project>{ab924566-b91e-4edd-a411-86294ba27fd2}</Project>
+      <Name>JobSearchOrganizer.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

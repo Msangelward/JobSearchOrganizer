@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace JobSearchOrganizer.Models
 {
-    public class JobListItem
+    public class JobCreate
     {
-        [Display (Name = "Job Id")]
-        public int JobId { get; set; }
-        [Display(Name = "Job Title")]
+        [Required]
         public string JobTitle { get; set; }
-        [Display(Name = "Date Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public string CompanyName { get; set; }
+        public string JobDescription { get; set; }
+        
     }
 }

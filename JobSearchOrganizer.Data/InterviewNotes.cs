@@ -13,10 +13,12 @@ namespace JobSearchOrganizer.Data
         [Key]
         public int InterviewNotesId { get; set; }
 
+        /*
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
-        
+        */
+
         [Required]
         public string JobInterviewedFor { get; set; }
         [Required]
