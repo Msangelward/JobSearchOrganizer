@@ -27,7 +27,10 @@ namespace JobSearchOrganizer.Data
         public string State { get; set; }
         public string Zip { get; set; }
         public string PhoneNumber { get; set; }
+        [Display(Name = "Contact at Company")]
         public string ContactPerson { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
     }
 }

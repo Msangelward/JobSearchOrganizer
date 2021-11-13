@@ -21,7 +21,7 @@ namespace JobSearchOrganizer.Data
         
 
         [Required]
-        public string JobInterviewedFor { get; set; }
+        public string JobTitleInterviewedFor { get; set; }
         [Required]
         public string CompanyInterviewedFor { get; set; }
         [Required]
@@ -31,6 +31,8 @@ namespace JobSearchOrganizer.Data
         public string ResearchContenttoPrepare { get; set; }
         public string AfterInterviewNotes { get; set; }
         public bool ThankyouNoteSent { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
     }
 }
