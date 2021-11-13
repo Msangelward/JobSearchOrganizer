@@ -56,5 +56,32 @@ namespace JobSearchOrganizer.Services
             return query.ToArray();
             }
         }
+
+        public JobDetail GetJobById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Jobs
+                        .Single(e => e.JobId == id && e.UserId == _userId);
+                return
+                    new JobDetail
+                    {
+                        JobId = entity.JobId,
+                        JobTitle = entity.JobTitle,
+                        CompanyName = entity.CompanyName,
+                        JobDescription = entity.JobDescription,
+                        HowApplied = entity.HowApplied,
+                        NextStep = entity.NextStep,
+                        DateApplied = entity.DateApplied,
+                        PotentialPointOfContact = entity.PotentialPointOfContact,
+                        DateOfLastContact = entity.DateOfLastContact,
+                        InterviewNotes = entity.InterviewNotes,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc,
+                    };
+            }
+        }
     }
 }
