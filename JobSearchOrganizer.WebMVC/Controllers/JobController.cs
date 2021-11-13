@@ -15,7 +15,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         // GET: Job
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            var userId = User.Identity.GetUserId();
             var service = new JobService(userId);
             var model = service.GetJobs();
 
@@ -36,7 +36,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
 
             var service = CreateJobService();
 
-            if (service.CreateJob(model)) ;
+            if (service.CreateJob(model));
             {
                 TempData["SaveResult"] = "Your job was created.";
                 return RedirectToAction("Index");
@@ -128,7 +128,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
 
         private JobService CreateJobService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            var userId = User.Identity.GetUserId();
             var service = new JobService(userId);
             return service;
         }

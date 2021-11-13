@@ -56,13 +56,8 @@
   <ItemGroup>
     <Compile Include="Company.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="InterviewNotes.cs" />
+    <Compile Include="InterviewNote.cs" />
     <Compile Include="Job.cs" />
-    <Compile Include="Migrations\202111120236106_InitialMigration.cs" />
-    <Compile Include="Migrations\202111120236106_InitialMigration.Designer.cs">
-      <DependentUpon>202111120236106_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111120236106_InitialMigration.resx">
-      <DependentUpon>202111120236106_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\JobSearchOrganizer.Models\JobSearchOrganizer.Models.csproj">
+      <Project>{AB924566-B91E-4EDD-A411-86294BA27FD2}</Project>
+      <Name>JobSearchOrganizer.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

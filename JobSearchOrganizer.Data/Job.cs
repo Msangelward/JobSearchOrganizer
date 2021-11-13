@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobSearchOrganizer.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,12 +14,12 @@ namespace JobSearchOrganizer.Data
         [Key]
         public int JobId { get; set; }
 
-        //[ForeignKey("ApplicationUser")]//
+        [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
 
         [Required]
-        [Display(Name = "Job Title Applied To")]
+        [Display(Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
         [Display(Name = "Company Applied To")]
         public string CompanyName { get; set; }
@@ -27,7 +28,7 @@ namespace JobSearchOrganizer.Data
         public string JobDescription { get; set; }
         [Required]
         [Display(Name = "How You Applied")]
-        public string HowApplied { get; set; }
+        public HowApplied HowApplied { get; set; }
         [Display(Name = "Your Next Step")]
         public string NextStep { get; set; }
         [Required]

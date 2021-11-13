@@ -10,9 +10,9 @@ namespace JobSearchOrganizer.Services
 {
     public class JobService
     {
-        private readonly Guid _userId;
+        private readonly string _userId;
 
-        public JobService(Guid userId)
+        public JobService(string userId)
         {
             _userId = userId;
         }
@@ -49,7 +49,7 @@ namespace JobSearchOrganizer.Services
                                 new JobListItem
                                 {
                                     JobId = e.JobId,
-                                    JobTitle = e.Title,
+                                    JobTitle = e.JobTitle,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );

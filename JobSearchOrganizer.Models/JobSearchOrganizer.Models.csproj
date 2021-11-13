@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\HowApplied.cs" />
+    <Compile Include="Enums\MethodOfInterview.cs" />
     <Compile Include="JobCreate.cs" />
     <Compile Include="JobDetail.cs" />
     <Compile Include="JobEdit.cs" />

@@ -33,6 +33,9 @@ namespace JobSearchOrganizer.Data
         }
 
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<InterviewNote> InterviewNotes { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
