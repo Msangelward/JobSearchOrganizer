@@ -75,7 +75,31 @@ namespace JobSearchOrganizer.WebMVC.Controllers
                 };
 
             return View(model);
+        }[HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, JobEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.JobId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateJobService();
+
+            if (service.UpdateJob(model))
+            {
+                TempData["SaveResult"] = "Your note was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View();
         }
+
+
 
         private JobService CreateJobService()
         {
