@@ -38,11 +38,11 @@ namespace JobSearchOrganizer.WebMVC.Controllers
 
             if (service.CreateJob(model)) ;
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your job was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Job could not be created.");
 
             return View(model);
         }
@@ -75,7 +75,32 @@ namespace JobSearchOrganizer.WebMVC.Controllers
                 };
 
             return View(model);
-        }[HttpPost]
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateJobService();
+            var model = svc.GetJobById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateJobService();
+
+            service.DeleteJob(id);
+
+            TempData["SaveResult"] = "Your job was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, JobEdit model)
         {
@@ -91,11 +116,11 @@ namespace JobSearchOrganizer.WebMVC.Controllers
 
             if (service.UpdateJob(model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+                TempData["SaveResult"] = "Your job was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated.");
+            ModelState.AddModelError("", "Your job could not be updated.");
             return View();
         }
 
