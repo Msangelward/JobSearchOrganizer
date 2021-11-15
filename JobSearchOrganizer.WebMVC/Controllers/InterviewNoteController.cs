@@ -53,6 +53,26 @@ namespace JobSearchOrganizer.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateIntervewNoteService();
+            var detail = service.GetInterviewNoteById(id);
+            var model =
+                new InterviewNoteEdit
+                {
+                    InterviewNoteId = detail.InterviewNoteId,
+                    JobTitleInterviewedFor = detail.JobTitleInterviewedFor,
+                    CompanyInterviewedFor = detail.CompanyInterviewedFor,
+                    PersonInterviewedWith = detail.PersonInterviewedWith,
+                    MethodOfInterview = detail.MethodOfInterview,
+                    ResearchContenttoPrepare = detail.ResearchContenttoPrepare,
+                    AfterInterviewNotes = detail.AfterInterviewNotes,
+                    ThankyouNoteSent = detail.ThankyouNoteSent,
+                };
+            return View(model);
+        }
+
         private InterviewNoteService CreateIntervewNoteService()
         {
             var userId = User.Identity.GetUserId();

@@ -56,11 +56,13 @@
   <ItemGroup>
     <Compile Include="CompanyCreate.cs" />
     <Compile Include="CompanyDetail.cs" />
+    <Compile Include="CompanyEdit.cs" />
     <Compile Include="CompanyListItem.cs" />
     <Compile Include="Enums\HowApplied.cs" />
     <Compile Include="Enums\MethodOfInterview.cs" />
     <Compile Include="InterviewNoteCreate.cs" />
     <Compile Include="InterviewNoteDetail.cs" />
+    <Compile Include="InterviewNoteEdit.cs" />
     <Compile Include="InterviewNoteListItem.cs" />
     <Compile Include="JobCreate.cs" />
     <Compile Include="JobDetail.cs" />

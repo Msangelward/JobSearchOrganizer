@@ -82,5 +82,27 @@ namespace JobSearchOrganizer.Services
                     };
             }
         }
+
+        public bool UpdateCompany(CompanyEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Companies
+                        .Single(e => e.CompanyId == model.CompanyId && e.UserId == _userId);
+
+                entity.CompanyName = model.CompanyName;
+                entity.CompanyWebsite = model.CompanyWebsite;
+                entity.StreetAddress = model.StreetAddress;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.Zip = model.Zip;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.ContactPerson = model.ContactPerson;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

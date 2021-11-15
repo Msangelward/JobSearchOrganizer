@@ -82,5 +82,26 @@ namespace JobSearchOrganizer.Services
                     };
             }
         }
+
+        public bool UpdateInterviewNote(InterviewNoteEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .InterviewNotes
+                        .Single(e => e.InterviewNoteId == model.InterviewNoteId && e.UserId == _userId);
+
+                entity.JobTitleInterviewedFor = model.JobTitleInterviewedFor;
+                entity.CompanyInterviewedFor = model.CompanyInterviewedFor;
+                entity.PersonInterviewedWith = model.PersonInterviewedWith;
+                entity.MethodOfInterview = model.MethodOfInterview;
+                entity.ResearchContenttoPrepare = model.ResearchContenttoPrepare;
+                entity.AfterInterviewNotes = model.AfterInterviewNotes;
+                entity.ThankyouNoteSent = model.ThankyouNoteSent;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
