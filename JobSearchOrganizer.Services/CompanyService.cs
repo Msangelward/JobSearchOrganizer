@@ -48,11 +48,38 @@ namespace JobSearchOrganizer.Services
                             e =>
                                 new CompanyListItem
                                 {
+                                    CompanyId = e.CompanyId,
                                     CompanyName = e.CompanyName,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public CompanyDetail GetCompanyById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Companies
+                    .Single(e => e.CompanyId == id && e.UserId == _userId);
+                return
+                    new CompanyDetail
+                    {
+                        CompanyId = entity.CompanyId,
+                        CompanyName = entity.CompanyName,
+                        CompanyWebsite = entity.CompanyWebsite,
+                        StreetAddress = entity.StreetAddress,
+                        City = entity.City,
+                        State = entity.State,
+                        Zip = entity.Zip,
+                        PhoneNumber = entity.PhoneNumber,
+                        ContactPerson = entity.ContactPerson,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
             }
         }
     }

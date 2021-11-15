@@ -46,6 +46,13 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateIntervewNoteService();
+            var model = svc.GetInterviewNoteById(id);
+
+            return View(model);
+        }
         private InterviewNoteService CreateIntervewNoteService()
         {
             var userId = User.Identity.GetUserId();

@@ -37,7 +37,7 @@ namespace JobSearchOrganizer.Services
             }
         }
 
-        public IEnumerable<InterviewNoteListItem> GetJobs()
+        public IEnumerable<InterviewNoteListItem> GetInterviewNotes()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -49,11 +49,37 @@ namespace JobSearchOrganizer.Services
                             e =>
                                 new InterviewNoteListItem
                                 {
+                                    InterviewNoteId = e.InterviewNoteId,
                                     JobTitleInterviewedFor = e.JobTitleInterviewedFor,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public InterviewNoteDetail GetInterviewNoteById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .InterviewNotes
+                    .Single(e => e.InterviewNoteId == id && e.UserId == _userId);
+                return
+                    new InterviewNoteDetail
+                    {
+                        InterviewNoteId = entity.InterviewNoteId,
+                        JobTitleInterviewedFor = entity.JobTitleInterviewedFor,
+                        CompanyInterviewedFor = entity.CompanyInterviewedFor,
+                        PersonInterviewedWith = entity.PersonInterviewedWith,
+                        MethodOfInterview = entity.MethodOfInterview,
+                        ResearchContenttoPrepare = entity.ResearchContenttoPrepare,
+                        AfterInterviewNotes = entity.AfterInterviewNotes,
+                        ThankyouNoteSent = entity.ThankyouNoteSent,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    }
             }
         }
     }

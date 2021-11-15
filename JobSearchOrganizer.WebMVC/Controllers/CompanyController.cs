@@ -46,6 +46,14 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCompanyService();
+            var model = svc.GetCompanyById(id);
+
+            return View(model);
+        }
+
         private CompanyService CreateCompanyService()
         {
             var userId = User.Identity.GetUserId();

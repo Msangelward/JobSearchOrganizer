@@ -2,38 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobSearchOrganizer.Data
+namespace JobSearchOrganizer.Models
 {
-    public class InterviewNote
+    public class InterviewNoteDetail
     {
-        [Key]
         public int InterviewNoteId { get; set; }
-
         
-        // [ForeignKey("ApplicationUser")] //
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
-        
-
-        [Required]
         [Display(Name = "Job Title Interviewed For")]
         public string JobTitleInterviewedFor { get; set; }
-
-        [Required]
+        
         [Display(Name = "Company Interviewed For")]
         public string CompanyInterviewedFor { get; set; }
-
-
-        [Required]
+  
         [Display(Name = "Person Interviewed With")]
         public string PersonInterviewedWith { get; set; }
 
-        [Required]
         [Display(Name = "Method of Interview")]
         public MethodOfInterview MethodOfInterview { get; set; }
         
@@ -51,6 +38,5 @@ namespace JobSearchOrganizer.Data
         
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-
     }
 }

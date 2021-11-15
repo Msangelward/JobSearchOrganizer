@@ -1,28 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobSearchOrganizer.Data
+namespace JobSearchOrganizer.Models
 {
-    public class Company
+    public class CompanyDetail
     {
-        [Key]
         public int CompanyId { get; set; }
-
-        
-        //[ForeignKey("ApplicationUser")]//
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
-        
-
-        [Required]
         [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
-        [Required]
         [Display(Name = "Company Website")]
         public string CompanyWebsite { get; set; }
         [Display(Name = "Street Address")]
@@ -33,8 +22,9 @@ namespace JobSearchOrganizer.Data
         public string PhoneNumber { get; set; }
         [Display(Name = "Contact at Company")]
         public string ContactPerson { get; set; }
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-
     }
 }
