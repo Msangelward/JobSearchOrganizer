@@ -1,4 +1,6 @@
 ﻿using JobSearchOrganizer.Models;
+using JobSearchOrganizer.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,10 @@ namespace JobSearchOrganizer.WebMVC.Controllers
     {
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
+            var service = new InterviewNoteService(userId);
             var model = new InterviewNoteListItem[0];
+            
             return View();
         }
 
@@ -26,11 +31,17 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(InterviewNoteCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = User.Identity.GetUserId();
+            var service = new InterviewNoteService(userId);
+
+            service.CreateInterviewNote(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
