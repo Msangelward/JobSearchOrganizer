@@ -252,6 +252,8 @@
     <Content Include="Views\InterviewNote\Create.cshtml" />
     <Content Include="Views\InterviewNote\Details.cshtml" />
     <Content Include="Views\InterviewNote\Edit.cshtml" />
+    <Content Include="Views\Job\GetJobsByJobTitle.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

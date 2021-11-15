@@ -12,6 +12,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
     [Authorize]
     public class JobController : Controller
     {
+        // GET All Jobs
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
@@ -53,6 +54,16 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             var model = svc.GetJobById(id);
 
             return View(model);
+        }
+
+        //GET Job by Title
+        
+        public ActionResult GetJobsByJobTitle(string jobTitle)
+        {
+            var service = CreateJobService();
+            var jobs = service.GetJobByTitle(jobTitle);
+
+            return View(jobs);
         }
 
         //UPDATE Job

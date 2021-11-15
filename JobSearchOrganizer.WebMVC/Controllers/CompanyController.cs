@@ -12,6 +12,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
     [Authorize]
     public class CompanyController : Controller
     {
+        // GET All Companies
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();

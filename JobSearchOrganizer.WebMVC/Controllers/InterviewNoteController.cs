@@ -12,6 +12,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
     [Authorize]
     public class InterviewNoteController : Controller
     {
+        //GET All Interview Notes
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();

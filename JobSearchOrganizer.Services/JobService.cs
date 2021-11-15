@@ -42,6 +42,27 @@ namespace JobSearchOrganizer.Services
             }
         }
 
+
+        public List<JobListItem> GetAllJobs()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Jobs
+                        .Where(e => e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new JobListItem
+                                {
+                                    JobId = e.JobId,
+                                    JobTitle = e.JobTitle,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToList();
+            }
+        }
         public IEnumerable<JobListItem> GetJobs()
         {
             using (var ctx = new ApplicationDbContext())
@@ -87,6 +108,46 @@ namespace JobSearchOrganizer.Services
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc,
                     };
+            }
+        }
+
+
+        public List<JobList> GetJobByTitle(string jobTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var jobs = ctx.Jobs.ToList();
+
+                if (jobs is null)
+                {
+                    return null;
+                }
+
+                List<JobList> jobListByTitle = new List<JobList>();
+
+                foreach (Job job in jobs)
+                {
+                    if (job.JobTitle.ToLower() == jobTitle.ToLower())
+                    {
+                        JobList jobListToAdd = new JobList
+                        {
+                            JobId = job.JobId,
+                            JobTitle = job.JobTitle,
+                            CompanyName = job.CompanyName,
+                            JobDescription = job.JobDescription,
+                            HowApplied = job.HowApplied,
+                            NextStep = job.NextStep,
+                            DateApplied = job.DateApplied,
+                            PotentialPointOfContact = job.PotentialPointOfContact,
+                            DateOfLastContact = job.DateOfLastContact,
+                            InterviewNotes = job.InterviewNotes
+                        };
+
+                        jobListByTitle.Add(jobListToAdd);
+                    }
+                }
+
+                return jobListByTitle;
             }
         }
 
