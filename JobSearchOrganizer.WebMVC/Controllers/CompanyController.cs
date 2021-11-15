@@ -16,12 +16,12 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         {
             var userId = User.Identity.GetUserId();
             var service = new CompanyService(userId);
-            var model = new CompanyListItem[0];
+            var model = service.GetCompanies();
 
             return View();
         }
 
-        // GET: Company
+        // POST Company
         public ActionResult Create()
         {
             return View();
@@ -46,6 +46,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //GET Company by Id
         public ActionResult Details(int id)
         {
             var svc = CreateCompanyService();
@@ -54,6 +55,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //UPDATE Company
         public ActionResult Edit(int id)
         {
             var service = CreateCompanyService();
@@ -98,6 +100,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //DELETE Company
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {

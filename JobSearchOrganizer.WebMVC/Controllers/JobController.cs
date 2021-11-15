@@ -12,7 +12,6 @@ namespace JobSearchOrganizer.WebMVC.Controllers
     [Authorize]
     public class JobController : Controller
     {
-        // GET: Job
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
@@ -22,7 +21,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
-        //GET
+        //POST Job
         public ActionResult Create()
         {
             return View();
@@ -47,6 +46,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //GET Job by Id
         public ActionResult Details (int id)
         {
             var svc = CreateJobService();
@@ -55,6 +55,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //UPDATE Job
         public ActionResult Edit(int id)
         {
             var service = CreateJobService();
@@ -101,7 +102,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View();
         }
 
-
+        //DELETE Job
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {

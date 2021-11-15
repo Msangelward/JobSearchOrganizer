@@ -16,12 +16,12 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         {
             var userId = User.Identity.GetUserId();
             var service = new InterviewNoteService(userId);
-            var model = new InterviewNoteListItem[0];
+            var model = service.GetInterviewNotes();
             
             return View();
         }
 
-        // GET: InterviewNote
+        // POST Interview Note
         public ActionResult Create()
         {
             return View();
@@ -46,6 +46,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //GET Interview Note by Id
         public ActionResult Details(int id)
         {
             var svc = CreateIntervewNoteService();
@@ -54,6 +55,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //UPDATE Interview Note
         public ActionResult Edit(int id)
         {
             var service = CreateIntervewNoteService();
@@ -97,6 +99,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //DELETE Interview Note
         public ActionResult Delete(int id)
         {
             var svc = CreateIntervewNoteService();
