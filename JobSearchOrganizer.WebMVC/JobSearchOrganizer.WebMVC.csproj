@@ -247,6 +247,8 @@
     <Content Include="Views\Company\Create.cshtml" />
     <Content Include="Views\InterviewNote\Index.cshtml" />
     <Content Include="Views\InterviewNote\Create.cshtml" />
+    <Content Include="Views\Company\Details.cshtml" />
+    <Content Include="Views\InterviewNote\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

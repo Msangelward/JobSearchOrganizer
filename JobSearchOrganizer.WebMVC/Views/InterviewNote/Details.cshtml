@@ -1,0 +1,90 @@
+﻿@model JobSearchOrganizer.Models.InterviewNoteDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InterviewNoteDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InterviewNoteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterviewNoteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitleInterviewedFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitleInterviewedFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyInterviewedFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyInterviewedFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonInterviewedWith)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonInterviewedWith)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResearchContenttoPrepare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResearchContenttoPrepare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AfterInterviewNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AfterInterviewNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThankyouNoteSent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThankyouNoteSent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InterviewNoteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
