@@ -10,8 +10,11 @@ namespace JobSearchOrganizer.Models
     public class CompanyCreate
     {  
         [Required]
+        [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
+        
         [Required]
+        [Display(Name = "Company Name Website")]
         public string CompanyWebsite { get; set; }
     }
 }

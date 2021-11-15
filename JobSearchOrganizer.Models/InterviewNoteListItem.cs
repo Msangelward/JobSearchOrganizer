@@ -9,8 +9,12 @@ namespace JobSearchOrganizer.Models
 {
     public class InterviewNoteListItem
     {
+        [Display (Name ="Interview Note Id")]
         public int InterviewNoteId { get; set; }
+        
+        [Display (Name ="Job Title Interviewed For")]
         public string JobTitleInterviewedFor { get; set; }
+
         [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }

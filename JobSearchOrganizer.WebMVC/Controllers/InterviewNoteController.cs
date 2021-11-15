@@ -18,7 +18,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             var service = new InterviewNoteService(userId);
             var model = service.GetInterviewNotes();
             
-            return View();
+            return View(model);
         }
 
         // POST Interview Note
@@ -33,7 +33,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateIntervewNoteService();
+            var service = CreateInterviewNoteService();
 
             if (service.CreateInterviewNote(model))
             {
@@ -49,7 +49,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         //GET Interview Note by Id
         public ActionResult Details(int id)
         {
-            var svc = CreateIntervewNoteService();
+            var svc = CreateInterviewNoteService();
             var model = svc.GetInterviewNoteById(id);
 
             return View(model);
@@ -58,7 +58,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         //UPDATE Interview Note
         public ActionResult Edit(int id)
         {
-            var service = CreateIntervewNoteService();
+            var service = CreateInterviewNoteService();
             var detail = service.GetInterviewNoteById(id);
             var model =
                 new InterviewNoteEdit
@@ -87,9 +87,9 @@ namespace JobSearchOrganizer.WebMVC.Controllers
                 return View(model);
             }
 
-            var servivce = CreateIntervewNoteService();
+            var service = CreateInterviewNoteService();
 
-            if (servivce.UpdateInterviewNote(model))
+            if (service.UpdateInterviewNote(model))
             {
                 TempData["SaveResult"] = "Your Interview note was updated.";
                 return RedirectToAction("Index");
@@ -102,7 +102,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         //DELETE Interview Note
         public ActionResult Delete(int id)
         {
-            var svc = CreateIntervewNoteService();
+            var svc = CreateInterviewNoteService();
             var model = svc.GetInterviewNoteById(id);
 
             return View(model);
@@ -113,7 +113,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateIntervewNoteService();
+            var service = CreateInterviewNoteService();
 
             service.DeleteInterviewNote(id);
 
@@ -122,7 +122,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        private InterviewNoteService CreateIntervewNoteService()
+        private InterviewNoteService CreateInterviewNoteService()
         {
             var userId = User.Identity.GetUserId();
             var service = new InterviewNoteService(userId);

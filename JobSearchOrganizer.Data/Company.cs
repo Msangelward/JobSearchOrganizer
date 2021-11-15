@@ -33,6 +33,7 @@ namespace JobSearchOrganizer.Data
         public string PhoneNumber { get; set; }
         [Display(Name = "Contact at Company")]
         public string ContactPerson { get; set; }
+        [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
 

@@ -99,7 +99,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             }
 
             ModelState.AddModelError("", "Your job could not be updated.");
-            return View();
+            return View(model);
         }
 
         //DELETE Job

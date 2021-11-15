@@ -23,7 +23,6 @@ namespace JobSearchOrganizer.Services
                 new Company()
                 {
                     UserId = _userId,
-
                     CompanyName = model.CompanyName,
                     CompanyWebsite = model.CompanyWebsite,
                     CreatedUtc = DateTimeOffset.Now
@@ -63,8 +62,8 @@ namespace JobSearchOrganizer.Services
             {
                 var entity =
                     ctx
-                    .Companies
-                    .Single(e => e.CompanyId == id && e.UserId == _userId);
+                        .Companies
+                        .Single(e => e.CompanyId == id && e.UserId == _userId);
                 return
                     new CompanyDetail
                     {

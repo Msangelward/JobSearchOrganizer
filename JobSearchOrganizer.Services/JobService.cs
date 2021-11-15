@@ -26,6 +26,8 @@ namespace JobSearchOrganizer.Services
                     JobTitle = model.JobTitle,
                     CompanyName = model.CompanyName,
                     JobDescription = model.JobDescription,
+                    HowApplied = model.HowApplied,
+                    DateApplied = model.DateApplied,
                     CreatedUtc = DateTimeOffset.Now
                 };
 

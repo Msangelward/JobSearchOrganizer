@@ -46,10 +46,8 @@ namespace JobSearchOrganizer.Data
         [Display(Name = "Thank you note sent? y/n")]
         public bool ThankyouNoteSent { get; set; }
         
-        [Display(Name = "Created")]
+        [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-        
-        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
     }

@@ -18,7 +18,7 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             var service = new CompanyService(userId);
             var model = service.GetCompanies();
 
-            return View();
+            return View(model);
         }
 
         // POST Company
@@ -88,9 +88,9 @@ namespace JobSearchOrganizer.WebMVC.Controllers
                 return View(model);
             }
 
-            var servivce = CreateCompanyService();
+            var service = CreateCompanyService();
 
-            if (servivce.UpdateCompany(model))
+            if (service.UpdateCompany(model))
             {
                 TempData["SaveResult"] = "Your Company was updated.";
                 return RedirectToAction("Index");
