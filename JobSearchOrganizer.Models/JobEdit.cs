@@ -12,31 +12,31 @@ namespace JobSearchOrganizer.Models
     {
         public int JobId { get; set; }
 
-        [Display(Name = "Title of Job Applied To")]
+        [Display (Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
 
-        [Display(Name = "Company Applied To")]
+        [Display (Name = "Company Applied To")]
         public string CompanyName { get; set; }
 
-        [Display(Name = "Job Description")]
+        [Display (Name = "Job Description")]
         public string JobDescription { get; set; }
 
-        [Display(Name = "How You Applied")]
+        [Display (Name = "How You Applied")]
         public HowApplied HowApplied { get; set; }
 
-        [Display(Name = "Your Next Step")]
+        [Display (Name = "Your Next Step")]
         public string NextStep { get; set; }
 
-        [Display(Name = "Date You Applied")]
+        [Display (Name = "Date You Applied")]
         public DateTime DateApplied { get; set; }
 
-        [Display(Name = "A Potential Point of Contact")]
+        [Display (Name = "A Potential Point of Contact")]
         public string PotentialPointOfContact { get; set; }
 
-        [Display(Name = "Date of Last Contact")]
+        [Display (Name = "Date of Last Contact")]
         public DateTime DateOfLastContact { get; set; }
 
-        [Display(Name = "Interview Notes")]
+        [Display (Name = "Interview Notes")]
         public string InterviewNotes { get; set; }
     }
 }

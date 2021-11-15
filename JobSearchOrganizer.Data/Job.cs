@@ -19,27 +19,36 @@ namespace JobSearchOrganizer.Data
         public virtual ApplicationUser User { get; set; }
 
         [Required]
-        [Display(Name = "Title of Job Applied To")]
+        [Display (Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
-        [Display(Name = "Company Applied To")]
+        
+        [Display (Name = "Company Applied To")]
         public string CompanyName { get; set; }
+        
         [Required]
-        [Display(Name = "Job Description")]
+        [Display (Name = "Job Description")]
         public string JobDescription { get; set; }
+        
         [Required]
-        [Display(Name = "How You Applied")]
+        [Display (Name = "How You Applied")]
         public HowApplied HowApplied { get; set; }
-        [Display(Name = "Your Next Step")]
+        
+        [Display (Name = "Your Next Step")]
         public string NextStep { get; set; }
+        
         [Required]
-        [Display(Name = "Date You Applied")]
+        [Display (Name = "Date You Applied")]
         public DateTime DateApplied { get; set; }
-        [Display(Name = "A Potential Point of Contact")]
+        
+        [Display (Name = "A Potential Point of Contact")]
         public string PotentialPointOfContact { get; set; }
-        [Display(Name = "Date of Last Contact")]
+        
+        [Display (Name = "Date of Last Contact")]
         public DateTime DateOfLastContact { get; set; }
-        [Display(Name = "Interview Notes")]
+        
+        [Display (Name = "Interview Notes")]
         public string InterviewNotes { get; set; }
+        
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

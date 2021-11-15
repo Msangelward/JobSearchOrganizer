@@ -11,22 +11,35 @@ namespace JobSearchOrganizer.Models
     public class JobCreate
     {
         [Required]
-        [Display(Name = "Title of Job Applied To")]
+        [Display (Name = "Title of Job Applied To (Required)")]
         public string JobTitle { get; set; }
 
-        [Display(Name = "Company Applied To")]
+        [Display (Name = "Company Applied To")]
         public string CompanyName { get; set; }
-        
-        [Required]
-        [Display(Name = "Job Description")]
-        public string JobDescription { get; set; }
-        
-        [Required]
-        [Display(Name = "How You Applied")]
-        public HowApplied HowApplied { get; set; }
 
         [Required]
-        [Display(Name = "Date You Applied")]
+        [Display (Name = "Job Description (Required)")]
+        public string JobDescription { get; set; }
+
+        [Required]
+        [Display (Name = "How You Applied (Required)")]
+        public HowApplied HowApplied { get; set; }
+
+        [Display (Name = "Your Next Step")]
+        public string NextStep { get; set; }
+
+        [Required]
+        [Display (Name = "Date You Applied (Required)")]
         public DateTime DateApplied { get; set; }
+
+        [Display (Name = "A Potential Point of Contact")]
+        public string PotentialPointOfContact { get; set; }
+
+        [Display (Name = "Date of Last Contact (Required)")]
+        public DateTime DateOfLastContact { get; set; }
+
+        [Display (Name = "Interview Notes")]
+        public string InterviewNotes { get; set; }
+
     }
 }

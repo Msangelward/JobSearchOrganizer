@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace JobSearchOrganizer.Models.Enums
 {
     public enum HowApplied
-        {
-            CompanyWebsite,
-            Indeed,
-            LinkedIN,
-            Monster,
-            CareerBuilder,
-            Email,
-            Other
-        }
+    {
+        CompanyWebsite,
+        Indeed,
+        LinkedIN,
+        Monster,
+        CareerBuilder,
+        Email,
+        Other
+    }
 }

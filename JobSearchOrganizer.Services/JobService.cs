@@ -27,7 +27,11 @@ namespace JobSearchOrganizer.Services
                     CompanyName = model.CompanyName,
                     JobDescription = model.JobDescription,
                     HowApplied = model.HowApplied,
+                    NextStep = model.NextStep,
                     DateApplied = model.DateApplied,
+                    PotentialPointOfContact = model.PotentialPointOfContact,
+                    DateOfLastContact = model.DateOfLastContact,
+                    InterviewNotes = model.InterviewNotes,
                     CreatedUtc = DateTimeOffset.Now
                 };
 

@@ -30,7 +30,7 @@ namespace JobSearchOrganizer.Models
         [Display(Name = "After Interview Notes")]
         public string AfterInterviewNotes { get; set; }
         
-        [Display(Name = "Thank you note sent? y/n")]
+        [Display(Name = "Thank you note sent?")]
         public bool ThankyouNoteSent { get; set; }
         
         [Display(Name = "Created")]

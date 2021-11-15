@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobSearchOrganizer.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,11 +12,10 @@ namespace JobSearchOrganizer.Models
     {
         [Display (Name = "Job Id")]
         public int JobId { get; set; }
-        
-        [Display(Name = "Job Title")]
+
+        [Display (Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
-        
-        [Display(Name = "Date Created")]
+
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }
