@@ -79,7 +79,7 @@ namespace JobSearchOrganizer.Services
                         ThankyouNoteSent = entity.ThankyouNoteSent,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
-                    }
+                    };
             }
         }
     }
