@@ -31,17 +31,26 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CompanyCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateCompanyService();
+
+            if (service.CreateCompany(model))
             {
-                return View(model);
+                TempData["SaveResult"] = "Your Company was created.";
+                return RedirectToAction("Index");
             }
 
+            ModelState.AddModelError("", "Company could not be created.");
+
+            return View(model);
+        }
+
+        private CompanyService CreateCompanyService()
+        {
             var userId = User.Identity.GetUserId();
             var service = new CompanyService(userId);
-
-            service.CreateCompany(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

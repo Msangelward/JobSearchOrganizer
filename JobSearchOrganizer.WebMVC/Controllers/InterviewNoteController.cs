@@ -31,17 +31,26 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(InterviewNoteCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateIntervewNoteService();
+
+            if (service.CreateInterviewNote(model))
             {
-                return View(model);
+                TempData["SaveResult"] = "Your Interview note was created.";
+                return RedirectToAction("Index");
             }
 
+            ModelState.AddModelError("", "Interview Note could not be created.");
+
+            return View(model);
+        }
+
+        private InterviewNoteService CreateIntervewNoteService()
+        {
             var userId = User.Identity.GetUserId();
             var service = new InterviewNoteService(userId);
-
-            service.CreateInterviewNote(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
