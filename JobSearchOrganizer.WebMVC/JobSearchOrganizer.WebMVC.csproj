@@ -251,6 +251,8 @@
     <Content Include="Views\InterviewNote\Details.cshtml" />
     <Content Include="Views\Company\Edit.cshtml" />
     <Content Include="Views\InterviewNote\Edit.cshtml" />
+    <Content Include="Views\Company\Delete.cshtml" />
+    <Content Include="Views\InterviewNote\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

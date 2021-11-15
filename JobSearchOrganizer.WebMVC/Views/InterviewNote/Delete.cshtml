@@ -1,0 +1,96 @@
+﻿@model JobSearchOrganizer.Models.InterviewNoteDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>InterviewNoteDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InterviewNoteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterviewNoteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitleInterviewedFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitleInterviewedFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyInterviewedFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyInterviewedFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonInterviewedWith)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonInterviewedWith)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResearchContenttoPrepare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResearchContenttoPrepare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AfterInterviewNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AfterInterviewNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThankyouNoteSent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThankyouNoteSent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -103,5 +103,20 @@ namespace JobSearchOrganizer.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteInterviewNote(int interviewNoteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .InterviewNotes
+                        .Single(e => e.InterviewNoteId == interviewNoteId && e.UserId == _userId);
+
+                ctx.InterviewNotes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

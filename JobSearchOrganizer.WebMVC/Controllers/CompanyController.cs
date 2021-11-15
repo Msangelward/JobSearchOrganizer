@@ -98,6 +98,29 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCompanyService();
+            var model = svc.GetCompanyById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCompanyService();
+
+            service.DeleteCompany(id);
+
+            TempData["SaveResult"] = "Your company was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private CompanyService CreateCompanyService()
         {
             var userId = User.Identity.GetUserId();

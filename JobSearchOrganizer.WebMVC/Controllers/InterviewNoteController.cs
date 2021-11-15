@@ -97,6 +97,28 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateIntervewNoteService();
+            var model = svc.GetInterviewNoteById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateIntervewNoteService();
+
+            service.DeleteInterviewNote(id);
+
+            TempData["SaveResult"] = "Your Interview note was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private InterviewNoteService CreateIntervewNoteService()
         {
             var userId = User.Identity.GetUserId();

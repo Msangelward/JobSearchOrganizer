@@ -104,5 +104,20 @@ namespace JobSearchOrganizer.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteCompany(int companyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Companies
+                        .Single(e => e.CompanyId == companyId && e.UserId == _userId);
+
+                ctx.Companies.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
