@@ -11,7 +11,6 @@ namespace JobSearchOrganizer.Models
     public class InterviewNoteCreate
     {
         [Required]
-        (Display)
         public string JobTitleInterviewedFor { get; set; }
         [Required]
         public string CompanyInterviewedFor { get; set; }

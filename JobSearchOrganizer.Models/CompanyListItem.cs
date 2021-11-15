@@ -11,6 +11,7 @@ namespace JobSearchOrganizer.Models
     {
         public int CompanyId { get; set; }
         public string CompanyName { get; set; }
+
         [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }
