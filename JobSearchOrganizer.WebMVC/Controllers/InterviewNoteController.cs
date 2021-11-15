@@ -73,6 +73,30 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, InterviewNoteEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.InterviewNoteId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var servivce = CreateIntervewNoteService();
+
+            if (servivce.UpdateInterviewNote(model))
+            {
+                TempData["SaveResult"] = "Your Interview note was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Interview note could not be updated.");
+            return View(model);
+        }
+
         private InterviewNoteService CreateIntervewNoteService()
         {
             var userId = User.Identity.GetUserId();

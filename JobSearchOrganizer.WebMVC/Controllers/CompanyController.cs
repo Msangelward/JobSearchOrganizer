@@ -74,6 +74,30 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CompanyEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.CompanyId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var servivce = CreateCompanyService();
+
+            if (servivce.UpdateCompany(model))
+            {
+                TempData["SaveResult"] = "Your Company was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Company could not be updated.");
+            return View(model);
+        }
+
         private CompanyService CreateCompanyService()
         {
             var userId = User.Identity.GetUserId();
