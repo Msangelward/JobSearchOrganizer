@@ -15,7 +15,7 @@ namespace JobSearchOrganizer.Data
         public int InterviewNoteId { get; set; }
 
         
-        [ForeignKey("ApplicationUser")]
+        // [ForeignKey("ApplicationUser")] //
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
         

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace JobSearchOrganizer.Models
 {
-    class InterviewNoteCreate
+    public class InterviewNoteCreate
     {
         [Required]
+        (Display)
         public string JobTitleInterviewedFor { get; set; }
         [Required]
         public string CompanyInterviewedFor { get; set; }

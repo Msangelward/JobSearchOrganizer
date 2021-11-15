@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace JobSearchOrganizer.Models
 {
-    public class InterviewNoteCreate
+    public class CompanyCreate
     {  
         [Required]
         public string CompanyName { get; set; }
+        [Required]
         public string CompanyWebsite { get; set; }
     }
 }
