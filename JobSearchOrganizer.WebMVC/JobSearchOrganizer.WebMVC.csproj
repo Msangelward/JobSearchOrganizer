@@ -241,19 +241,20 @@
     <Content Include="Views\Job\Delete.cshtml" />
     <Content Include="Views\Company\Delete.cshtml" />
     <Content Include="Views\InterviewNote\Delete.cshtml" />
-    <Content Include="Views\Job\Index.cshtml" />
     <Content Include="Views\Job\Create.cshtml" />
     <Content Include="Views\Job\Details.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\Create.cshtml" />
     <Content Include="Views\Company\Details.cshtml" />
     <Content Include="Views\Company\Edit.cshtml" />
-    <Content Include="Views\InterviewNote\Index.cshtml" />
     <Content Include="Views\InterviewNote\Create.cshtml" />
     <Content Include="Views\InterviewNote\Details.cshtml" />
     <Content Include="Views\InterviewNote\Edit.cshtml" />
-    <Content Include="Views\Job\GetJobsByJobTitle.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\GetJobByApplicationDate.cshtml" />
+    <Content Include="Views\Job\GetJobsByJobTitle.cshtml" />
+    <Content Include="Views\Job\GetJobByLastDateContacted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

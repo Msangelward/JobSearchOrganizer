@@ -42,8 +42,8 @@ namespace JobSearchOrganizer.Services
             }
         }
 
-
-        public List<JobListItem> GetAllJobs()
+        /*
+        public IEnumerable<JobListItem> GetAllJobs()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -60,9 +60,10 @@ namespace JobSearchOrganizer.Services
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
-                return query.ToList();
+                return query.ToArray();
             }
-        }
+        }*/
+
         public IEnumerable<JobListItem> GetJobs()
         {
             using (var ctx = new ApplicationDbContext())
@@ -77,6 +78,8 @@ namespace JobSearchOrganizer.Services
                                 {
                                     JobId = e.JobId,
                                     JobTitle = e.JobTitle,
+                                    DateApplied = e.DateApplied,
+                                    DateOfLastContact = e.DateOfLastContact,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -110,46 +113,91 @@ namespace JobSearchOrganizer.Services
                     };
             }
         }
+        /*
+        public IEnumerable<JobListItem> UserGetJobByTitle(string searchString)
+        {
+
+            var jobs = GetJobs();
+            var jobItems = jobs.Where(c => c.JobTitle.Contains(searchString));
+
+            return jobItems;
+        }*/
 
 
-        public List<JobList> GetJobByTitle(string jobTitle)
+        public IEnumerable<JobListItem> GetJobByTitle(string jobTitle)
+        {
+           using (var ctx = new ApplicationDbContext())
+           {
+                //var jobItems = jobTitle;//
+
+                var query =
+                    ctx
+                        .Jobs
+                        .Where(e => e.JobTitle == jobTitle && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new JobListItem
+                                {
+                                    JobId = e.JobId,
+                                    JobTitle = e.JobTitle,
+                                    DateApplied = e.DateApplied,
+                                    DateOfLastContact = e.DateOfLastContact,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                    return query.ToArray();
+           }
+        }
+
+        public IEnumerable<JobListItem> GetJobByApplicationDate(DateTime dateApplied)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var jobs = ctx.Jobs.ToList();
+                //var jobItems = jobTitle;//
 
-                if (jobs is null)
-                {
-                    return null;
-                }
+                var query =
+                    ctx
+                        .Jobs
+                        .Where(e => e.DateApplied == dateApplied && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new JobListItem
+                                {
+                                    JobId = e.JobId,
+                                    JobTitle = e.JobTitle,
+                                    DateApplied = e.DateApplied,
+                                    DateOfLastContact = e.DateOfLastContact,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToArray();
+            }
 
-                List<JobList> jobListByTitle = new List<JobList>();
+        }
 
-                foreach (Job job in jobs)
-                {
-                    if (job.JobTitle.ToLower() == jobTitle.ToLower())
-                    {
-                        JobList jobListToAdd = new JobList
-                        {
-                            JobId = job.JobId,
-                            JobTitle = job.JobTitle,
-                            CompanyName = job.CompanyName,
-                            JobDescription = job.JobDescription,
-                            HowApplied = job.HowApplied,
-                            NextStep = job.NextStep,
-                            DateApplied = job.DateApplied,
-                            PotentialPointOfContact = job.PotentialPointOfContact,
-                            DateOfLastContact = job.DateOfLastContact,
-                            InterviewNotes = job.InterviewNotes
-                        };
-
-                        jobListByTitle.Add(jobListToAdd);
-                    }
-                }
-
-                return jobListByTitle;
+        public IEnumerable<JobListItem> GetJobByLastDateContacted(DateTime lastDateContacted)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Jobs
+                        .Where(e => e.DateOfLastContact == lastDateContacted && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new JobListItem
+                                {
+                                    JobId = e.JobId,
+                                    JobTitle = e.JobTitle,
+                                    DateApplied = e.DateApplied,
+                                    DateOfLastContact = e.DateOfLastContact,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToArray();
             }
         }
+        
 
         public bool UpdateJob(JobEdit model)
         {

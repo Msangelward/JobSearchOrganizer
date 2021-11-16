@@ -58,6 +58,15 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="InterviewNote.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Migrations\202111151556328_InitialCreate.cs" />
+    <Compile Include="Migrations\202111151556328_InitialCreate.Designer.cs">
+      <DependentUpon>202111151556328_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111161407398_InitialMigration.cs" />
+    <Compile Include="Migrations\202111161407398_InitialMigration.Designer.cs">
+      <DependentUpon>202111161407398_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +78,14 @@
       <Project>{AB924566-B91E-4EDD-A411-86294BA27FD2}</Project>
       <Name>JobSearchOrganizer.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111151556328_InitialCreate.resx">
+      <DependentUpon>202111151556328_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111161407398_InitialMigration.resx">
+      <DependentUpon>202111161407398_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

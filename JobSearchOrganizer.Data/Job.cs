@@ -21,10 +21,13 @@ namespace JobSearchOrganizer.Data
         [Required]
         [Display (Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
-        
+
+        //Foreign Key//
         [Display (Name = "Company Applied To")]
         public string CompanyName { get; set; }
+        //public virtual Company CompanyName { get; set; }//
         
+
         [Required]
         [Display (Name = "Job Description")]
         public string JobDescription { get; set; }
@@ -45,9 +48,13 @@ namespace JobSearchOrganizer.Data
         
         [Display (Name = "Date of Last Contact")]
         public DateTime DateOfLastContact { get; set; }
+
         
+        //Foreign Key one to one//
         [Display (Name = "Interview Notes")]
         public string InterviewNotes { get; set; }
+        //public virtual InterviewNote InterviewNote { get; set; }//
+
         
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

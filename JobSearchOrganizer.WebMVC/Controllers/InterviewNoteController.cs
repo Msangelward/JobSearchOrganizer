@@ -56,6 +56,16 @@ namespace JobSearchOrganizer.WebMVC.Controllers
             return View(model);
         }
 
+        //GET Interview Note by Company
+        [HttpGet]
+        public ActionResult GetInterviewNoteByCompany(string interviewNoteByCompany)
+        {
+            var service = CreateInterviewNoteService();
+            var jobs = service.GetInterviewNoteByCompany(interviewNoteByCompany);
+
+            return View(jobs);
+        }
+
         //UPDATE Interview Note
         public ActionResult Edit(int id)
         {

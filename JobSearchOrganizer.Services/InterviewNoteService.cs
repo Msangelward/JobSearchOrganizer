@@ -83,6 +83,27 @@ namespace JobSearchOrganizer.Services
             }
         }
 
+        public IEnumerable<InterviewNoteListItem> GetInterviewNoteByCompany(string interviewNoteByCompany)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = 
+                    ctx
+                        .InterviewNotes
+                        .Where(e => e.CompanyInterviewedFor == interviewNoteByCompany && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new InterviewNoteListItem
+                                {
+                                    InterviewNoteId = e.InterviewNoteId,
+                                    JobTitleInterviewedFor = e.JobTitleInterviewedFor,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToArray();
+            }
+        }
+
         public bool UpdateInterviewNote(InterviewNoteEdit model)
         {
             using (var ctx = new ApplicationDbContext())

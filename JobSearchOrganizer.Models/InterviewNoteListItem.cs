@@ -15,6 +15,9 @@ namespace JobSearchOrganizer.Models
         [Display (Name ="Job Title Interviewed For")]
         public string JobTitleInterviewedFor { get; set; }
 
+        [Display(Name = "Company Interviewed For")]
+        public string CompanyInterviewedFor { get; set; }
+
         [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }

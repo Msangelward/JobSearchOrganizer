@@ -13,8 +13,13 @@ namespace JobSearchOrganizer.Models
         [Display (Name = "Job Id")]
         public int JobId { get; set; }
 
-        [Display (Name = "Title of Job Applied To")]
+        [Display(Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
+        [Display(Name = "Date You Applied")]
+        public DateTime DateApplied { get; set; }
+
+        [Display(Name = "Date of Last Contact")]
+        public DateTime DateOfLastContact { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
     }

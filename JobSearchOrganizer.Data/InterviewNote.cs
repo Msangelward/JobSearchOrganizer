@@ -11,7 +11,8 @@ namespace JobSearchOrganizer.Data
 {
     public class InterviewNote
     {
-        [Key]
+        
+        //[ForeignKey("Job")]//
         public int InterviewNoteId { get; set; }
 
         
@@ -19,14 +20,17 @@ namespace JobSearchOrganizer.Data
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
         
-
+        //Foreign Key??//
         [Required]
         [Display(Name = "Job Title Interviewed For")]
         public string JobTitleInterviewedFor { get; set; }
+        // public virtual Job JobTitleInterviewedFor { get; set; } //
 
+        //ForeignKey??//
         [Required]
         [Display(Name = "Company Interviewed For")]
         public string CompanyInterviewedFor { get; set; }
+        // public virtual Company CompanyInterviewedFor { get; set; } //
 
 
         [Required]

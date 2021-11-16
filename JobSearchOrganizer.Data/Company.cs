@@ -10,7 +10,7 @@ namespace JobSearchOrganizer.Data
 {
     public class Company
     {
-        [Key]
+        //[ForeignKey("Job")]//
         public int CompanyId { get; set; }
 
         
@@ -18,11 +18,14 @@ namespace JobSearchOrganizer.Data
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
         
-
+        //Foreign Key-many to many?//
         [Required]
         [Display (Name = "Company Name")]
         public string CompanyName { get; set; }
-        
+
+        public string JobTitle { get; set; }
+        //public virtual Job JobTitle { get; set; }//
+
         [Required]
         [Display (Name = "Company Website")]
         public string CompanyWebsite { get; set; }

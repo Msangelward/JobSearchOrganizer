@@ -1,9 +1,12 @@
-﻿using JobSearchOrganizer.Models;
+﻿using JobSearchOrganizer.Data;
+using JobSearchOrganizer.Models;
 using JobSearchOrganizer.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -57,11 +60,31 @@ namespace JobSearchOrganizer.WebMVC.Controllers
         }
 
         //GET Job by Title
-        
+        [HttpGet]
         public ActionResult GetJobsByJobTitle(string jobTitle)
         {
             var service = CreateJobService();
             var jobs = service.GetJobByTitle(jobTitle);
+
+            return View(jobs);
+        }
+
+        //GET Job by ApplicationDate
+        [HttpGet]
+        public ActionResult GetJobByApplicationDate(DateTime dateApplied)
+        {
+            var service = CreateJobService();
+            var jobs = service.GetJobByApplicationDate(dateApplied);
+
+            return View(jobs);
+        }
+
+        //GET Job by Title
+        [HttpGet]
+        public ActionResult GetJobByLastDateContacted(DateTime lastDateContacted)
+        {
+            var service = CreateJobService();
+            var jobs = service.GetJobByLastDateContacted(lastDateContacted);
 
             return View(jobs);
         }
