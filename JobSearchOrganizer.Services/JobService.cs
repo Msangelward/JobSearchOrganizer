@@ -41,29 +41,6 @@ namespace JobSearchOrganizer.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        /*
-        public IEnumerable<JobListItem> GetAllJobs()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Jobs
-                        .Where(e => e.UserId == _userId)
-                        .Select(
-                            e =>
-                                new JobListItem
-                                {
-                                    JobId = e.JobId,
-                                    JobTitle = e.JobTitle,
-                                    CreatedUtc = e.CreatedUtc
-                                }
-                        );
-                return query.ToArray();
-            }
-        }*/
-
         public IEnumerable<JobListItem> GetJobs()
         {
             using (var ctx = new ApplicationDbContext())
@@ -80,6 +57,7 @@ namespace JobSearchOrganizer.Services
                                     JobTitle = e.JobTitle,
                                     DateApplied = e.DateApplied,
                                     DateOfLastContact = e.DateOfLastContact,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -142,6 +120,7 @@ namespace JobSearchOrganizer.Services
                                     JobTitle = e.JobTitle,
                                     DateApplied = e.DateApplied,
                                     DateOfLastContact = e.DateOfLastContact,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -167,6 +146,7 @@ namespace JobSearchOrganizer.Services
                                     JobTitle = e.JobTitle,
                                     DateApplied = e.DateApplied,
                                     DateOfLastContact = e.DateOfLastContact,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -191,6 +171,7 @@ namespace JobSearchOrganizer.Services
                                     JobTitle = e.JobTitle,
                                     DateApplied = e.DateApplied,
                                     DateOfLastContact = e.DateOfLastContact,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -217,6 +198,7 @@ namespace JobSearchOrganizer.Services
                 entity.PotentialPointOfContact = model.PotentialPointOfContact;
                 entity.DateOfLastContact = model.DateOfLastContact;
                 entity.InterviewNotes = model.InterviewNotes;
+                entity.IsStarred = model.IsStarred;
 
                 return ctx.SaveChanges() == 1;
             }

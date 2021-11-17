@@ -18,6 +18,9 @@ namespace JobSearchOrganizer.Models
         [Display(Name = "Date You Applied")]
         public DateTime DateApplied { get; set; }
 
+        [UIHint("Starred")]
+        public bool IsStarred { get; set; }
+
         [Display(Name = "Date of Last Contact")]
         public DateTime DateOfLastContact { get; set; }
 

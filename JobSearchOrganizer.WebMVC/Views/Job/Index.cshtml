@@ -34,6 +34,9 @@
             @Html.DisplayNameFor(model => model.DateOfLastContact)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.IsStarred)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th></th>
@@ -41,28 +44,58 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateApplied)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfLastContact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.JobId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.JobTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateApplied)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfLastContact)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.JobId })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedUtc)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
+    </td>
+</tr>
     }
 
 </table>
+
+@section scripts{
+<script language="javascript" type="text/javascript">
+    $(document.ready(function () {
+        $("i[data-toggle='star]")
+            .css({ "curser": "pointer" })
+            .click(function (e) {
+                var target = $(e.target);
+                var jobId = target.attr("data-id");
+                var starSet = target.hasClass("glypnicon-star");
+
+                $.ajax({
+                    method: starSet ? "DELETE" : "PUT",
+                    url: "/api/job + jobId + "/star",
+                    data: null
+                })
+                    .done(function (r) {
+                        target.removeClass();
+                        target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                    })
+                    .fail(function (r) {
+                        alert("Failed to change star status");
+                    });
+            });
+    });
+</script>
+}
