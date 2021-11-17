@@ -66,6 +66,14 @@
     <Compile Include="Migrations\202111161407398_InitialMigration.Designer.cs">
       <DependentUpon>202111161407398_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111162331008_SecondMigration.cs" />
+    <Compile Include="Migrations\202111162331008_SecondMigration.Designer.cs">
+      <DependentUpon>202111162331008_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111162334428_IsStarredMigration.cs" />
+    <Compile Include="Migrations\202111162334428_IsStarredMigration.Designer.cs">
+      <DependentUpon>202111162334428_IsStarredMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111161407398_InitialMigration.resx">
       <DependentUpon>202111161407398_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111162331008_SecondMigration.resx">
+      <DependentUpon>202111162331008_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111162334428_IsStarredMigration.resx">
+      <DependentUpon>202111162334428_IsStarredMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

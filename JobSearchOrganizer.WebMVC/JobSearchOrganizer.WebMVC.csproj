@@ -255,6 +255,8 @@
     <Content Include="Views\Job\GetJobByApplicationDate.cshtml" />
     <Content Include="Views\Job\GetJobsByJobTitle.cshtml" />
     <Content Include="Views\Job\GetJobByLastDateContacted.cshtml" />
+    <Content Include="Views\InterviewNote\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Starred.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
