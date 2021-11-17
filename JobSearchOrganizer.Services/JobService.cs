@@ -198,6 +198,7 @@ namespace JobSearchOrganizer.Services
                 entity.PotentialPointOfContact = model.PotentialPointOfContact;
                 entity.DateOfLastContact = model.DateOfLastContact;
                 entity.InterviewNotes = model.InterviewNotes;
+                entity.IsStarred = model.IsStarred;
 
                 return ctx.SaveChanges() == 1;
             }

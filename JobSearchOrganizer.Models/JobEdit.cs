@@ -38,5 +38,6 @@ namespace JobSearchOrganizer.Models
 
         [Display (Name = "Interview Notes")]
         public string InterviewNotes { get; set; }
+        public bool IsStarred { get; set; }
     }
 }
