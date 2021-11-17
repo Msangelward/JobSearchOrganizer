@@ -27,6 +27,10 @@ a.btn {
     background-color: black !important;
 }
 
+.image-logo{
+    max-height: 30px;
+}
+
 /* Targeters = dot/period/. class*/
 /* Targeters = #hastags id*/
 /* Targeters = nothing tag*/

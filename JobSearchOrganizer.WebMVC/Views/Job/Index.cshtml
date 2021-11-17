@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Job</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,6 +19,7 @@
         </button>
     </div>
 </div>
+
 <table class="table">
     <tr>
         <th>
@@ -51,68 +52,69 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.JobId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.InterviewNoteId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CompanyId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.JobTitle)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateApplied)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsStarred)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateOfLastContact)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsStarred)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CreatedUtc)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterviewNoteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateApplied)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsStarred)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfLastContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsStarred)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
+            </td>
+        </tr>
+    }
 
 </table>
 
 @section scripts{
-<script language="javascript" type="text/javascript">
-    $(document).ready(function () {
-        $("i[data-toggle= 'star'])
-            .css({ "cursor": "pointer" })
-            .click(function (e) {
-                var target = $(e.target);
-                var jobId = target.attr("data-id");
-                var starSet = target.hasClass("glyphicon-star");
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("i[data-toggle= 'star'])
+                .css({ "cursor": "pointer" })
+                .click(function (e) {
+                    var target = $(e.target);
+                    var jobId = target.attr("data-id");
+                    var starSet = target.hasClass("glyphicon-star");
 
-                $.ajax({
-                    method: starSet ? "DELTE" : "PUT",
-                    url: "api/job" + jobId + "/star",
-                    data: null
+                    $.ajax({
+                        method: starSet ? "DELTE" : "PUT",
+                        url: "api/job" + jobId + "/star",
+                        data: null
+                    })
+                        .done(function (r) {
+                            target.removeClass();
+                            target.addClass("glyphicon" + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                        })
+                        .fail(function (r) {
+                            alert("Failed to change star status");
+                        })
                 })
-                    .done(function (r) {
-                        target.removeClass();
-                        target.addClass("glyphicon" + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
-                    })
-                    .fail(function (r) {
-                        alert("Failed to change star status");
-                    })
-            })
-    })
-    </script>    
+        })
+    </script>
 }
