@@ -82,6 +82,17 @@ namespace JobSearchOrganizer.Services
             }
         }
 
+        public void AddInterviewNotesToCompanies(int interviewNoteId, int companyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundInterviewNote = ctx.InterviewNotes.Single(c => c.InterviewNoteId == interviewNoteId);
+                var foundCompany = ctx.Companies.Single(s => s.CompanyId == companyId);
+                foundCompany.ListOfInterviewNotes.Add(foundInterviewNote);
+                var testing = ctx.SaveChanges();
+            }
+        }
+
         public bool UpdateCompany(CompanyEdit model)
         {
             using (var ctx = new ApplicationDbContext())

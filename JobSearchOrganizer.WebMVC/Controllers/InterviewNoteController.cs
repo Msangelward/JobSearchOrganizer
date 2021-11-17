@@ -58,12 +58,13 @@ namespace JobSearchOrganizer.WebMVC.Controllers
 
         //GET Interview Note by Company
         [HttpGet]
-        public ActionResult GetInterviewNoteByCompany(string interviewNoteByCompany)
+        public ActionResult GetInterviewNoteByCompany(int companyId)
         {
+            
             var service = CreateInterviewNoteService();
-            var jobs = service.GetInterviewNoteByCompany(interviewNoteByCompany);
+            var interviewNotes = service.GetInterviewNoteByCompany(companyId);
 
-            return View(jobs);
+            return View(interviewNotes);
         }
 
         //UPDATE Interview Note

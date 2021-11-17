@@ -15,7 +15,10 @@ namespace JobSearchOrganizer.Data
         [Key]
         public int JobId { get; set; }
 
-        // [ForeignKey("ApplicationUser")] //
+        [ForeignKey("InterviewNote")]
+        public int InterviewNoteId { get; set; }
+        public virtual InterviewNote InterviewNote { get; set; }
+
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
 
@@ -23,11 +26,10 @@ namespace JobSearchOrganizer.Data
         [Display (Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
 
-        //Foreign Key//
+        [ForeignKey("Company")]
+        public int CompanyId { get; set; }
         [Display (Name = "Company Applied To")]
-        public string CompanyName { get; set; }
-        //public virtual Company CompanyName { get; set; }//
-        
+        public virtual Company Company { get; set; }//
 
         [Required]
         [Display (Name = "Job Description")]
@@ -49,12 +51,6 @@ namespace JobSearchOrganizer.Data
         
         [Display (Name = "Date of Last Contact")]
         public DateTime DateOfLastContact { get; set; }
-
-        
-        //Foreign Key one to one//
-        [Display (Name = "Interview Notes")]
-        public string InterviewNotes { get; set; }
-        //public virtual InterviewNote InterviewNote { get; set; }//
 
         [DefaultValue(false)]
         public bool IsStarred { get; set; }

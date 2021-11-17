@@ -9,7 +9,6 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
 <div class="input-group">
     <div class="d-flex">
         <input class="form=control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -19,7 +18,6 @@
         </button>
     </div>
 </div>
-
 <table class="table">
     <tr>
         <th>
@@ -53,8 +51,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.InterviewNoteId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.InterviewNoteId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.InterviewNoteId })
+            @Html.ActionLink("Details", "Details", new { id=item.InterviewNoteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InterviewNoteId })
         </td>
     </tr>
 }

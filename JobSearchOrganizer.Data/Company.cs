@@ -10,21 +10,13 @@ namespace JobSearchOrganizer.Data
 {
     public class Company
     {
-        //[ForeignKey("Job")]//
         public int CompanyId { get; set; }
-
-        
-        //[ForeignKey("ApplicationUser")]//
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
-        
-        //Foreign Key-many to many?//
+       
         [Required]
         [Display (Name = "Company Name")]
         public string CompanyName { get; set; }
-
-        public string JobTitle { get; set; }
-        //public virtual Job JobTitle { get; set; }//
 
         [Required]
         [Display (Name = "Company Website")]
@@ -45,6 +37,13 @@ namespace JobSearchOrganizer.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        public virtual ICollection<InterviewNote> ListOfInterviewNotes { get; set; }
+
+        public Company()
+        {
+            ListOfInterviewNotes = new HashSet<InterviewNote>();
+        }
 
     }
 }

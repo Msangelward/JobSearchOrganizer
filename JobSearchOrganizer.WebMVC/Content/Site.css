@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+a.btn {
+    background-color: black !important;
+}
+
+/* Targeters = dot/period/. class*/
+/* Targeters = #hastags id*/
+/* Targeters = nothing tag*/

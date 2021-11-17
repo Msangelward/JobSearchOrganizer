@@ -12,26 +12,15 @@ namespace JobSearchOrganizer.Data
     public class InterviewNote
     {
         
-        //[ForeignKey("Job")]//
+        [Key]
         public int InterviewNoteId { get; set; }
-
-        
-        // [ForeignKey("ApplicationUser")] //
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
         
-        //Foreign Key??//
+        
         [Required]
         [Display(Name = "Job Title Interviewed For")]
         public string JobTitleInterviewedFor { get; set; }
-        // public virtual Job JobTitleInterviewedFor { get; set; } //
-
-        //ForeignKey??//
-        [Required]
-        [Display(Name = "Company Interviewed For")]
-        public string CompanyInterviewedFor { get; set; }
-        // public virtual Company CompanyInterviewedFor { get; set; } //
-
 
         [Required]
         [Display(Name = "Person Interviewed With")]
@@ -53,6 +42,11 @@ namespace JobSearchOrganizer.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+        public virtual ICollection<Company> ListOfCompanies { get; set; }
 
+        public InterviewNote()
+        {
+            ListOfCompanies = new HashSet<Company>();
+        }
     }
 }

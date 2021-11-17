@@ -14,6 +14,8 @@ namespace JobSearchOrganizer.Models
 
         [Display (Name = "Title of Job Applied To")]
         public string JobTitle { get; set; }
+        public int InterviewNoteId { get; set; }
+        public int CompanyId { get; set; }
 
         [Display (Name = "Company Applied To")]
         public string CompanyName { get; set; }

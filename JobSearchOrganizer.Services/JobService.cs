@@ -24,14 +24,14 @@ namespace JobSearchOrganizer.Services
                 {
                     UserId = _userId,
                     JobTitle = model.JobTitle,
-                    CompanyName = model.CompanyName,
+                    CompanyId = model.CompanyId,
                     JobDescription = model.JobDescription,
                     HowApplied = model.HowApplied,
                     NextStep = model.NextStep,
                     DateApplied = model.DateApplied,
                     PotentialPointOfContact = model.PotentialPointOfContact,
                     DateOfLastContact = model.DateOfLastContact,
-                    InterviewNotes = model.InterviewNotes,
+                    InterviewNoteId = model.InterviewNoteId,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -78,14 +78,14 @@ namespace JobSearchOrganizer.Services
                     {
                         JobId = entity.JobId,
                         JobTitle = entity.JobTitle,
-                        CompanyName = entity.CompanyName,
+                        CompanyId = entity.CompanyId,
                         JobDescription = entity.JobDescription,
                         HowApplied = entity.HowApplied,
                         NextStep = entity.NextStep,
                         DateApplied = entity.DateApplied,
                         PotentialPointOfContact = entity.PotentialPointOfContact,
                         DateOfLastContact = entity.DateOfLastContact,
-                        InterviewNotes = entity.InterviewNotes,
+                        InterviewNoteId = entity.InterviewNoteId,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc,
                     };
@@ -190,14 +190,14 @@ namespace JobSearchOrganizer.Services
                         .Single(e => e.JobId == model.JobId && e.UserId == _userId);
 
                 entity.JobTitle = model.JobTitle;
-                entity.CompanyName = model.CompanyName;
+                entity.CompanyId = model.CompanyId;
                 entity.JobDescription = model.JobDescription;
                 entity.HowApplied = model.HowApplied;
                 entity.NextStep = model.NextStep;
                 entity.DateApplied = model.DateApplied;
                 entity.PotentialPointOfContact = model.PotentialPointOfContact;
                 entity.DateOfLastContact = model.DateOfLastContact;
-                entity.InterviewNotes = model.InterviewNotes;
+                entity.InterviewNoteId = model.InterviewNoteId;
                 entity.IsStarred = model.IsStarred;
 
                 return ctx.SaveChanges() == 1;

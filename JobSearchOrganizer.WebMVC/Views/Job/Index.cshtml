@@ -9,15 +9,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
 <div class="input-group">
-        <div class="d-flex">
-            <input class="form=control me-2" type="search" placeholder="Search" aria-label="Search">
-            @*@Html.ActionLink("Job", "GetJobByTitle", new { id = item.jobTitle })*@
-            <button class="btn btn-outline-success" type="submit">Search</button>
-            <i class="fas fa-search"></i>
-            </button>
-        </div>
+    <div class="d-flex">
+        <input class="form=control me-2" type="search" placeholder="Search" aria-label="Search">
+        @*@Html.ActionLink("Job", "GetJobByTitle", new { id = item.jobTitle })*@
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <i class="fas fa-search"></i>
+
+        </button>
+    </div>
 </div>
 <table class="table">
     <tr>
@@ -25,10 +25,19 @@
             @Html.DisplayNameFor(model => model.JobId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.InterviewNoteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.JobTitle)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateApplied)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsStarred)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateOfLastContact)
@@ -42,11 +51,16 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model) {
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.JobId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.InterviewNoteId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CompanyId)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.JobTitle)
@@ -55,10 +69,13 @@
         @Html.DisplayFor(modelItem => item.DateApplied)
     </td>
     <td>
+        @Html.DisplayFor(modelItem => item.IsStarred)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.DateOfLastContact)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.JobId })
+        @Html.DisplayFor(modelItem => item.IsStarred)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.CreatedUtc)
@@ -69,33 +86,33 @@
         @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
     </td>
 </tr>
-    }
+}
 
 </table>
 
 @section scripts{
 <script language="javascript" type="text/javascript">
-    $(document.ready(function () {
-        $("i[data-toggle='star]")
-            .css({ "curser": "pointer" })
+    $(document).ready(function () {
+        $("i[data-toggle= 'star'])
+            .css({ "cursor": "pointer" })
             .click(function (e) {
                 var target = $(e.target);
                 var jobId = target.attr("data-id");
-                var starSet = target.hasClass("glypnicon-star");
+                var starSet = target.hasClass("glyphicon-star");
 
                 $.ajax({
-                    method: starSet ? "DELETE" : "PUT",
-                    url: "/api/job + jobId + "/star",
+                    method: starSet ? "DELTE" : "PUT",
+                    url: "api/job" + jobId + "/star",
                     data: null
                 })
                     .done(function (r) {
                         target.removeClass();
-                        target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                        target.addClass("glyphicon" + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
                     })
                     .fail(function (r) {
                         alert("Failed to change star status");
-                    });
-            });
-    });
-</script>
+                    })
+            })
+    })
+    </script>    
 }

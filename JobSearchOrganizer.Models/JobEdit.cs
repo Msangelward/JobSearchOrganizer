@@ -10,6 +10,8 @@ namespace JobSearchOrganizer.Models
 {
     public class JobEdit
     {
+        public int InterviewNoteId { get; set; }
+        public int CompanyId { get; set; }
         public int JobId { get; set; }
 
         [Display (Name = "Title of Job Applied To")]

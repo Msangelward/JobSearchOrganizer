@@ -23,8 +23,8 @@ namespace JobSearchOrganizer.Services
                 new InterviewNote()
                 {
                     UserId = _userId,
-                    JobTitleInterviewedFor = model.JobTitleInterviewedFor,
-                    CompanyInterviewedFor = model.CompanyInterviewedFor,
+                    //JobTitleInterviewedFor = model.JobTitleInterviewedFor,//
+                    //CompanyInterviewedFor = model.CompanyInterviewedFor,//
                     PersonInterviewedWith = model.PersonInterviewedWith,
                     MethodOfInterview = model.MethodOfInterview,
                     CreatedUtc = DateTimeOffset.Now
@@ -50,7 +50,7 @@ namespace JobSearchOrganizer.Services
                                 new InterviewNoteListItem
                                 {
                                     InterviewNoteId = e.InterviewNoteId,
-                                    JobTitleInterviewedFor = e.JobTitleInterviewedFor,
+                                    //JobTitleInterviewedFor = e.JobTitleInterviewedFor,//
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -70,8 +70,8 @@ namespace JobSearchOrganizer.Services
                     new InterviewNoteDetail
                     {
                         InterviewNoteId = entity.InterviewNoteId,
-                        JobTitleInterviewedFor = entity.JobTitleInterviewedFor,
-                        CompanyInterviewedFor = entity.CompanyInterviewedFor,
+                        //JobTitleInterviewedFor = entity.JobTitleInterviewedFor,//
+                        //CompanyInterviewedFor = entity.CompanyInterviewedFor,//
                         PersonInterviewedWith = entity.PersonInterviewedWith,
                         MethodOfInterview = entity.MethodOfInterview,
                         ResearchContenttoPrepare = entity.ResearchContenttoPrepare,
@@ -83,14 +83,25 @@ namespace JobSearchOrganizer.Services
             }
         }
 
-        public IEnumerable<InterviewNoteListItem> GetInterviewNoteByCompany(string interviewNoteByCompany)
+        public void AddCompanyToInterviewNotes(int companyId, int interviewNotesId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = 
+                var foundCompany = ctx.Companies.Single(c => c.CompanyId == companyId);
+                var foundInterviewNote = ctx.InterviewNotes.Single(s => s.InterviewNoteId == interviewNotesId);
+                foundInterviewNote.ListOfCompanies.Add(foundCompany);
+                var testing = ctx.SaveChanges();
+            }
+        }
+
+        public IEnumerable<InterviewNoteListItem> GetInterviewNoteByCompany(int companyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems = 
                     ctx
-                        .InterviewNotes
-                        .Where(e => e.CompanyInterviewedFor == interviewNoteByCompany && e.UserId == _userId)
+                        .Companies
+                        .Single(e => e.CompanyId == companyId).ListOfInterviewNotes
                         .Select(
                             e =>
                                 new InterviewNoteListItem
@@ -100,7 +111,7 @@ namespace JobSearchOrganizer.Services
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
-                return query.ToArray();
+                return foundItems.ToArray();
             }
         }
 
@@ -113,8 +124,8 @@ namespace JobSearchOrganizer.Services
                         .InterviewNotes
                         .Single(e => e.InterviewNoteId == model.InterviewNoteId && e.UserId == _userId);
 
-                entity.JobTitleInterviewedFor = model.JobTitleInterviewedFor;
-                entity.CompanyInterviewedFor = model.CompanyInterviewedFor;
+                //entity.JobTitleInterviewedFor = model.JobTitleInterviewedFor;//
+                //entity.CompanyInterviewedFor = model.CompanyInterviewedFor;//
                 entity.PersonInterviewedWith = model.PersonInterviewedWith;
                 entity.MethodOfInterview = model.MethodOfInterview;
                 entity.ResearchContenttoPrepare = model.ResearchContenttoPrepare;
