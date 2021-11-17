@@ -80,12 +80,12 @@
             .css({ "curser": "pointer" })
             .click(function (e) {
                 var target = $(e.target);
-                var noteId = target.attr("data-id");
+                var jobId = target.attr("data-id");
                 var starSet = target.hasClass("glypnicon-star");
 
                 $.ajax({
                     method: starSet ? "DELETE" : "PUT",
-                    url: "/api/note/" + noteId + "/star",
+                    url: "/api/job + jobId + "/star",
                     data: null
                 })
                     .done(function (r) {
